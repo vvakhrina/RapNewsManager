@@ -1,0 +1,93 @@
+﻿@model IEnumerable<RapNewsManager.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name_user)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_role)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RememberMe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nickname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_city)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fanpage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Other)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nb_patronat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nb_top_news)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name_user)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_role)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RememberMe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nickname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_city)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fanpage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Other)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nb_patronat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nb_top_news)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id_user }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id_user }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id_user })
+        </td>
+    </tr>
+}
+
+</table>

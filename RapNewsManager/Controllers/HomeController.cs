@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace RapNewsManager.Controllers
 {
@@ -13,18 +14,30 @@ namespace RapNewsManager.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Login()
         {
-            ViewBag.Message = "Your application description page.";
+            return View();
+        }
+                       
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(string _Email, string _Password, bool _RememberMe = false)
+        {
+            Models.User objUser = new Models.User();
+
+            if (objUser.IsValid(_Email, _Password, ref objUser))
+            {                   
+                FormsAuthentication.SetAuthCookie(objUser.Email, objUser.RememberMe);
+                return RedirectToAction("UserMainPage", "Users", objUser);
+            }
+            else
+            {
+                ModelState.AddModelError("", "Login data is incorrect!");
+            }
 
             return View();
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }

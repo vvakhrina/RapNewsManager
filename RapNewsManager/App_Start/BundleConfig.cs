@@ -24,7 +24,7 @@ namespace RapNewsManager
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/StyleSheet.css",
                       "~/Content/site.css"));
         }
     }
